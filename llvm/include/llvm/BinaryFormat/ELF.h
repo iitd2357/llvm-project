@@ -325,6 +325,7 @@ enum {
   EM_VE = 251,            // NEC SX-Aurora VE
   EM_CSKY = 252,          // C-SKY 32-bit processor
   EM_LOONGARCH = 258,     // LoongArch
+  EM_TOY = 259
 };
 
 // Object file classes.
@@ -702,6 +703,14 @@ enum {
 enum {
 #include "ELFRelocs/Lanai.def"
 };
+
+// //ELF Relocation for TOY - backend
+// enum {
+//   // Relocation types for TOY - backend
+//   #define ELF_RELOC(Name, Value) Name = Value,
+//   #include "ELFRelocs/Toy.def"
+//   #undef ELF_RELOC
+// };
 
 // RISCV Specific e_flags
 enum : unsigned {

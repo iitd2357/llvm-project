@@ -50,6 +50,7 @@ public:
     UnknownArch,
 
     arm,         // ARM (little endian): arm, armv.*, xscale
+    toy,
     armeb,       // ARM (big endian): armeb
     aarch64,     // AArch64 (little endian): aarch64
     aarch64_be,  // AArch64 (big endian): aarch64_be

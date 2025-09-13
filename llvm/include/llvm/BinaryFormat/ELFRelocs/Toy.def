@@ -1,0 +1,26 @@
+
+#ifndef ELF_RELOC
+#error "ELF_RELOC must be defined"
+#endif
+
+
+// A special relocation that indicates no operation. Required by convention.
+RELOC(R_TOY_NONE, 0)
+
+// Standard absolute relocations. Used for placing the full address of a
+// symbol in data sections (e.g., for a function pointer).
+RELOC(R_TOY_32, 1) // Direct 32-bit absolute address.
+RELOC(R_TOY_64, 2) // Direct 64-bit absolute address.
+
+
+// --- Relocations for materializing addresses in registers ---
+// This pair is used for the common LUI/ADDI sequence to load an address.
+// Example:
+//   lui a0, %hi(my_global_var)
+//   addi a0, a0, %lo(my_global_var)
+
+// High 20 bits of a 32-bit address. Used for the `LUI` instruction.
+RELOC(R_TOY_HI20, 3)
+
+// Low 12 bits of a 32-bit address. Used for `ADDI`, `LW`, `SW`, etc.
+RELOC(R_TOY_LO12, 4)
